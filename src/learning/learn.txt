@@ -1,0 +1,78 @@
+variable types
+let name: string = 'Vedant';
+let age: number = 24;
+let isStudent: boolean;
+let age2: number | string;
+
+array of strings
+let hobbies: string[];
+
+tuple
+let role: [number, string];
+role = [5, 'hi'];
+
+let person:Object;
+making an object
+type Person = {
+  name: string;
+  age?: number; //? makes it optional
+};
+let person: Person = { name: 'Vedant' };
+//array of object person
+let lotsOfPeople:Person[];
+
+Function types
+function printName(name: string) {
+  console.log(name);
+}
+printName('Vedant is logging');
+
+function printName(name: string) {
+  console.log(name);
+}
+let tex: (name: string) => void;
+void returns undefined however 'never' does not return anything
+any type is used when we cant specify type, unknown is recommended over any
+function checker(fn: (name: string) => void) {
+  fn('Hello World!');
+}
+function printToConsole(s: string) {
+  console.log(s);
+}
+
+type Person = {
+  a: string;
+  b: number;
+};
+extending type Person into X
+type X = Person & {
+  c: string;
+  d: number;
+};
+using X in a variable to add values, has access to all a, b, c, d
+let y: X = {
+  a: 'adsa',
+  b: 123,
+  c: 'asdas',
+  d: 42,
+};
+
+interface
+interface Person {
+  name: string;
+  age: number;
+}
+extending interface X to include Person
+interface X extends Person {
+  proffession: string;
+}
+you can extend a type into interface by following their specific rules
+checker(printName);
+
+#object type 
+#can use ? after property name to make it optional
+function printCoord(pt: { x: number; y: number }) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+printCoord({ x: 3, y: 7 });
